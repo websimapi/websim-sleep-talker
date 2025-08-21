@@ -1,0 +1,211 @@
+:root {
+    --primary-bg: #1a1a2e;
+    --secondary-bg: #16213e;
+    --accent-color: #0f3460;
+    --highlight-color: #e94560;
+    --text-color: #e0e0e0;
+    --font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+#app-container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+header {
+    text-align: center;
+    border-bottom: 1px solid var(--accent-color);
+    padding-bottom: 1rem;
+}
+
+header h1 {
+    margin: 0;
+    color: var(--highlight-color);
+    font-size: 2rem;
+}
+
+header p {
+    margin: 0.25rem 0 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+#controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+#toggle-listening-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: var(--font-family);
+    border: none;
+    border-radius: 8px;
+    background-color: var(--highlight-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#toggle-listening-btn:active {
+    transform: scale(0.98);
+}
+
+#toggle-listening-btn.listening {
+    background-color: #57b894;
+}
+
+.toggle-switch-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+}
+
+/* Toggle Switch CSS */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 28px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--highlight-color);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--highlight-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(22px);
+}
+
+#status-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+}
+
+#status-indicator {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+#status-indicator.idle { background-color: #6c757d; }
+#status-indicator.listening { background-color: #e94560; animation: pulse 1.5s infinite; }
+#status-indicator.processing { background-color: #ffc107; }
+#status-indicator.speaking { background-color: #00bfff; }
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(233, 69, 96, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(233, 69, 96, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(233, 69, 96, 0); }
+}
+
+#log-container {
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+    padding: 1rem;
+    min-height: 200px;
+}
+
+#log {
+    max-height: 40vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-right: 0.5rem;
+}
+
+/* Custom Scrollbar */
+#log::-webkit-scrollbar { width: 8px; }
+#log::-webkit-scrollbar-track { background: var(--accent-color); border-radius: 4px; }
+#log::-webkit-scrollbar-thumb { background: var(--highlight-color); border-radius: 4px; }
+#log::-webkit-scrollbar-thumb:hover { background: #d33a53; }
+
+.log-entry {
+    padding: 0.75rem;
+    border-radius: 8px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.log-entry.user {
+    background-color: var(--accent-color);
+    align-self: flex-start;
+    max-width: 80%;
+}
+.log-entry.ai {
+    background-color: #3d3b59;
+    align-self: flex-end;
+    text-align: right;
+    max-width: 80%;
+}
+.log-entry.system {
+    background-color: transparent;
+    text-align: center;
+    font-style: italic;
+    opacity: 0.7;
+    width: 100%;
+}
+

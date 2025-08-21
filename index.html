@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Talker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app-container">
+        <header>
+            <h1>Sleep Talker</h1>
+            <p>Your AI dream interpreter.</p>
+        </header>
+
+        <div id="controls">
+            <button id="toggle-listening-btn">Start Listening</button>
+            <div class="toggle-switch-container">
+                <label for="ai-talk-back-toggle">AI Talks Back</label>
+                <label class="switch">
+                    <input type="checkbox" id="ai-talk-back-toggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div id="status-container">
+            <div id="status-indicator" class="idle"></div>
+            <span id="status-text">Idle</span>
+        </div>
+
+        <div id="log-container">
+            <h2>Session Log</h2>
+            <div id="log">
+                <div class="log-entry system">Welcome! Press 'Start Listening' to begin. Your sleep talk and the AI's analysis will appear here.</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
